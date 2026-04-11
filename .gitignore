@@ -73,6 +73,10 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+ .vscode/ # For users who use vscode
+ .DS_Store # Mac OS file 
+
+
 # Crashlytics generated file
 crashlytics-build.properties
 
