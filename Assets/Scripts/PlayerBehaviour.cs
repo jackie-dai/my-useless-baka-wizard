@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    #region Private
+    private float interactRange = 4f;
+    private Rigidbody2D playerRB;
+    private bool equipped = false;
+    #endregion
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,6 +25,27 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector2.right * Time.deltaTime * 5);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {   
+            if (!equipped) // equip item
+            {
+                RaycastHit2D[] hits = Physics2D.BoxCastAll(playerRB.position, new Vector2(0.5f, 0.5f), 0f, Vector2.zero, 0f);
+                foreach (RaycastHit2D hit in hits)
+                {
+                    if (hit.collider.TryGetComponent(out IInteractable interactable))
+                    {
+                        interactable.Interact(transform);
+                    }
+                }
+                equipped = true;
+            } else // unequip
+            {
+                Transform firstChild = transform.GetChild(0); 
+                firstChild.parent = null;
+                equipped = false;
+            }
         }
     }
 }

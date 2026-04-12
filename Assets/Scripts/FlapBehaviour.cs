@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FlapBehaviour : MonoBehaviour
+public class FlapBehaviour : MonoBehaviour, IInteractable
 {
     //essentially a double jump, but with 3x instead of 2x 
     #region Editor Variables
@@ -69,5 +69,11 @@ public class FlapBehaviour : MonoBehaviour
                 currentFlaps = 0;
             }
         }
+    }
+
+    public void Interact(Transform player)
+    {
+        Debug.Log("equip");
+        transform.parent = player;
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpringBehaviour : MonoBehaviour
+public class SpringBehaviour : MonoBehaviour, IInteractable
 {
 
 
@@ -56,6 +56,12 @@ public class SpringBehaviour : MonoBehaviour
         {
             Debug.LogWarning("No Rigidbody2D found in parent.");
         }
+    }
+
+    public void Interact(Transform player) 
+    {   
+        Debug.Log("equip");
+        transform.parent = player;
     }
 
 
