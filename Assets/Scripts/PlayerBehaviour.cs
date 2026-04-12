@@ -6,17 +6,33 @@ public class PlayerBehaviour : MonoBehaviour
     private float interactRange = 4f;
     private Rigidbody2D playerRB;
     private bool equipped = false;
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
     #endregion
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //animation stuff
+        float move = Input.GetAxis("Horizontal");
+        anim.SetFloat("Speed", Mathf.Abs(move));
+        if (move < 0 )
+        {
+            spriteRenderer.flipX = false;
+        } else if (move > 0) {
+        
+            spriteRenderer.flipX = true;
+        }
+
         //add basic left right 2D movement
         if (Input.GetKey(KeyCode.A))
         {
