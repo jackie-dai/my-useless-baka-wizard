@@ -9,7 +9,8 @@ public class Inventory : MonoBehaviour
     public Sprite hungryCatSprite;
 
     #endregion
-    private InventoryItem[] items = new InventoryItem[3];
+    [SerializeField]
+    public InventoryItem[] items = new InventoryItem[3];
     private int hoveringSlot = -1;
 
     // add NEWITEM to inventory. Returns true on success and false if inventory is full
@@ -71,7 +72,12 @@ public class Inventory : MonoBehaviour
 
     public void UseItem(int slotIndex)
     {
+        Debug.Log("slot index" + slotIndex);
+        
         InventoryItem item = items[slotIndex];
+        Debug.Log("item: " + item);
+        Debug.Log("item: " + items[slotIndex]);
+
         if (item != null && item.equippable)
         {
             Debug.Log($"Using {item.itemName}");
