@@ -8,6 +8,8 @@ public class PlayerBehaviour : MonoBehaviour
     private GameObject equipped = null;
     private Animator anim;
     private SpriteRenderer spriteRenderer;
+    private bool _walkLoopPlaying;
+    private const float MoveDeadzone = 0.01f;
 
     #endregion
    
@@ -44,6 +46,20 @@ public class PlayerBehaviour : MonoBehaviour
             transform.Translate(Vector2.right * Time.deltaTime * 5);
         }
 
+        bool moving = Mathf.Abs(move) > MoveDeadzone
+                      || Input.GetKey(KeyCode.A)
+                      || Input.GetKey(KeyCode.D);
+        if (moving && !_walkLoopPlaying)
+        {
+            SoundManager.Instance?.PlayWalkLoop();
+            _walkLoopPlaying = true;
+        }
+        else if (!moving && _walkLoopPlaying)
+        {
+            SoundManager.Instance?.StopLoopClip();
+            _walkLoopPlaying = false;
+        }
+
         //if (Input.GetKeyDown(KeyCode.E))
         //{   
         //    if (!equipped) // equip item
@@ -74,6 +90,7 @@ public class PlayerBehaviour : MonoBehaviour
             //unequip current item if there is one
             if (equipped != null)
             {
+                SoundManager.Instance?.PlayLegUnequip();
                 Destroy(equipped);
                 equipped = null;
             }
@@ -83,6 +100,7 @@ public class PlayerBehaviour : MonoBehaviour
             //need to disable the sprite of item, and have player sprite update to show equipped item instead, including animation update
             equippedItem.transform.SetParent(transform);
             equippedItem.GetComponent<SpriteRenderer>().enabled = false; // hide the item's own sprite
+            SoundManager.Instance?.PlayLegEquip();
             return true;
         }
         else

@@ -57,6 +57,7 @@ MonoBehaviour:
   persistAcrossScenes: 1
   delayAfterIntroSeconds: 0
   scheduledMusicLeadSeconds: 0.05
+  walkLoop: {fileID: 8300000, guid: cc4cef21d9c2b1547abcff535b8cba1b, type: 3}
   rubberFrogCoiling: {fileID: 8300000, guid: 9af7b21454de3b74982eb4dc70494e41, type: 3}
   rubberFrogSpringing: {fileID: 8300000, guid: cbac528418b9c3c4ba8039b6800a5fb5, type: 3}
   rubberFrogLanding: {fileID: 8300000, guid: 467b660a9591b5545bd6fdd82ca7ebc9, type: 3}

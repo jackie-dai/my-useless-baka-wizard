@@ -27,6 +27,7 @@ public class SpringBehaviour : MonoBehaviour, IInteractable
         if (Input.GetKeyDown(KeyCode.S))
         {
             //start counting time
+            SoundManager.Instance?.PlayRubberFrogCoiling();
             StartCoroutine(Jump());
         }
     }
@@ -46,11 +47,13 @@ public class SpringBehaviour : MonoBehaviour, IInteractable
             
             yield return null;
         }
+
         //apply force to parent component
         Rigidbody2D rb = GetComponentInParent<Rigidbody2D>();
         if (rb != null)
         {
             rb.AddForce(Vector3.up * timeHeld * jumpForceMultiplier, ForceMode2D.Impulse);
+            SoundManager.Instance?.PlayRubberFrogSpringing();
         }
         else
         {
