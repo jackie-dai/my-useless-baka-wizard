@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float scheduledMusicLeadSeconds = 0.05f;
 
     [Header("SFX clips — assign here, call the matching method from gameplay")]
+    [SerializeField] private AudioClip walkLoop;
     [SerializeField] private AudioClip rubberFrogCoiling;
     [SerializeField] private AudioClip rubberFrogSpringing;
     [SerializeField] private AudioClip rubberFrogLanding;
@@ -122,6 +123,22 @@ public class SoundManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, Mathf.Clamp01(volumeScale));
     }
 
+    public void PlayLoopClip(AudioClip clip, float volumeScale = 1f)
+    {
+        if (clip == null || sfxSource == null)
+            return;
+        sfxSource.clip = clip;
+        sfxSource.loop = true;
+        sfxSource.Play();
+    }
+
+    public void StopLoopClip()
+    {
+        if (sfxSource != null)
+            sfxSource.Stop();
+    }
+
+    public void PlayWalkLoop() => PlayLoopClip(walkLoop);
     public void PlayRubberFrogCoiling() => PlayOneShotClip(rubberFrogCoiling);
     public void PlayRubberFrogSpringing() => PlayOneShotClip(rubberFrogSpringing);
     public void PlayRubberFrogLanding() => PlayOneShotClip(rubberFrogLanding);
