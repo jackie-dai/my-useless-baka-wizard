@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6188960655588427490}
   - component: {fileID: 2254573939690916373}
   - component: {fileID: 4781861176174517080}
+  - component: {fileID: 2135377235076747165}
   m_Layer: 3
   m_Name: Frog
   m_TagString: Untagged
@@ -149,3 +150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Frog
   icon: {fileID: 5165309490098153282, guid: dedda0dd52cfe9f4da7c1925b9ed110b, type: 3}
+  equippable: 1
+  prefab: {fileID: 7910863510419712728}
+--- !u!114 &2135377235076747165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910863510419712728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeeaf034c5875f24ea2502edea0d2031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHoldTime: 2
+  jumpForceMultiplier: 10
