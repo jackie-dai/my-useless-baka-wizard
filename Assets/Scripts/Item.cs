@@ -27,6 +27,7 @@ public class Item : MonoBehaviour
         }
 
         InventoryItem item = new InventoryItem(itemName, icon, equippable, prefab);
+        Debug.Log("prefab " + prefab);
         bool added = inventory.AddItem(item);
 
         if (added)
