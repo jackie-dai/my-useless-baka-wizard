@@ -68,5 +68,26 @@ public class Inventory : MonoBehaviour
         else
             slots[slotIndex].sprite = emptySlotSprite;
     }
-    
+
+    public void UseItem(int slotIndex)
+    {
+        InventoryItem item = items[slotIndex];
+        if (item != null && item.equippable)
+        {
+            Debug.Log($"Using {item.itemName}");
+            Debug.Log($"Item prefab: {item.prefab}");
+            GameObject player = GameObject.FindWithTag("Player");
+            Debug.Log($"Player found: {player != null}");
+            if (player != null && item.prefab != null)
+            {
+                player.GetComponent<PlayerBehaviour>().EquipItem(item.prefab);
+                
+            }
+            else
+            {
+                Debug.LogWarning("Player or item prefab not found. Cannot use item.");
+            }
+        }
+    }
+
 }

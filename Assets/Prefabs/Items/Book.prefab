@@ -149,3 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: book
   icon: {fileID: 3549210556653609065, guid: 58926213f41878b4e87c9816027024eb, type: 3}
+  equippable: 1
+  prefab: {fileID: 8465905860530467498}

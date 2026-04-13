@@ -6,6 +6,8 @@ public class Item : MonoBehaviour
     [Header("Item Data")]
     public string itemName;
     public Sprite icon;
+    public bool equippable = true;
+    public GameObject prefab = null;
 
     private Inventory inventory;
 
@@ -24,7 +26,7 @@ public class Item : MonoBehaviour
             return;
         }
 
-        InventoryItem item = new InventoryItem(itemName, icon);
+        InventoryItem item = new InventoryItem(itemName, icon, equippable, prefab);
         bool added = inventory.AddItem(item);
 
         if (added)
