@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour
     public Sprite emptySlotSprite;  
     public Sprite hungryCatSprite;
 
+    public GameObject frog;
+
     #endregion
     [SerializeField]
     public InventoryItem[] items = new InventoryItem[3];
@@ -81,12 +83,14 @@ public class Inventory : MonoBehaviour
         if (item != null && item.equippable)
         {
             Debug.Log($"Using {item.itemName}");
+            item.prefab = frog;
             Debug.Log($"Item prefab: {item.prefab}");
+        
             GameObject player = GameObject.FindWithTag("Player");
             Debug.Log($"Player found: {player != null}");
             if (player != null && item.prefab != null)
             {
-                player.GetComponent<PlayerBehaviour>().EquipItem(item.prefab);
+                player.GetComponent<PlayerBehaviour>().EquipItem(item.prefab); // TODO: CHANGE. HARD CODED B/C I CAN'T FIGURE OUT THE BUG
                 
             }
             else
