@@ -23,10 +23,13 @@ public class SpringBehaviour : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
+        // only the copy parented under the player (EquipItem / inventory) should read S — not legs sitting in the world
+        if (GetComponentInParent<PlayerBehaviour>() == null)
+            return;
+
         //if S is pressed then released, parent component (which will be player) will jump up with force proportional to the time S was held down
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //start counting time
             SoundManager.Instance?.PlayRubberFrogCoiling();
             StartCoroutine(Jump());
         }
