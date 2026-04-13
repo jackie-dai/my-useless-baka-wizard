@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4561633370296415316}
   - component: {fileID: 3616880459042157765}
   - component: {fileID: 155793140090510924}
+  - component: {fileID: 3016251564439554637}
   m_Layer: 0
   m_Name: Permeable Platform
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -782101607
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2051728547838417010, guid: 7319ad9c639572f48a7a987234df00a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,3 +155,16 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &3016251564439554637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6763481645288452830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e808ccacf325b40478e14d01dc279ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTime: 2
