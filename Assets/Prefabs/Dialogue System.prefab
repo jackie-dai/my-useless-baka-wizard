@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 3170967267758778390}
   - component: {fileID: 9144070004324184822}
   - component: {fileID: 1829177073307575929}
+  - component: {fileID: 7385614533194347713}
   m_Layer: 0
   m_Name: Dialogue System
   m_TagString: Untagged
@@ -543,6 +544,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showDebug: 0
   debugTextView: {fileID: 0}
+--- !u!114 &7385614533194347713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401489429166771153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6c9c37111ffde47b1098fe7edbe4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871826716695534128
 GameObject:
   m_ObjectHideFlags: 0
